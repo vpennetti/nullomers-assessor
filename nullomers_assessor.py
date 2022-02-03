@@ -4,8 +4,8 @@ import statsmodels
 import math
 import numpy as np
 import pandas as pd
-from statsmodels.compat.python import range
-from statsmodels.compat.collections import OrderedDict
+#from statsmodels.compat.python import range
+#from statsmodels.compat.collections import OrderedDict
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqUtils.ProtParam import ProteinAnalysis
@@ -214,8 +214,12 @@ with open(nullomers_file, encoding='utf8') as f:
         raise SystemExit()
     elif (level == 'DNA' and correction_method == 'FDR' and max_len > 18):
         print("\n**Nullomers' chains should be up to 18 nucleotides in length using FDR method. Please try again with shorter sequences**\n")
+	# added and commented out to enable assessing longer nullomers
+	#raise SystemExit()
     elif (level == 'DNA' and correction_method == 'BONF' and max_len > 18):
         print("\n**Nullomers should be up to 18 nucleotides in length using BONF method. Please try again with shorter sequences**\n")
+	# added and commented out to enable assessing longer nullomers
+	#raise SystemExit()
     elif (level == 'DNA' and correction_method == 'TARONE' and max_len > 14):
         print("\n**Nullomers should be up to 14 nucleotides in length using TARONE method. Please try again with shorter sequences**\n")
         raise SystemExit()
